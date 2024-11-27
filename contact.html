@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        emailjs.init('LiNYQ7owpcbU55oYL');
+        function sendEmail(event) {
+            event.preventDefault();
+            const form = event.target;
+            form.to_name = 'Pedro Llerenas';
+            emailjs.sendForm('service_n2n7l2e', 'template_pdt6mqs', form)
+                .then(() => alert('Email sent successfully!'))
+                .catch((error) => alert('Failed to send email: ' + error));
+        }
+    </script>
+  <title>Contact Me</title>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul class="socials">
+        <li><a class="bi bi-github" href="https://github.com/pdllerenas"></a></li>
+        <li><a class="bi bi-linkedin" href="https://www.linkedin.com/in/pdllerenas/"></a></li>
+        <li><a class="bi bi-twitter" href="https://twitter.com/pdllerenas"></a></li>
+        <li><a class="bi bi-youtube" href="https://www.youtube.com/pdllerenas"></a></li>
+        <li><a class="bi bi-instagram" href="https://www.instagram.com/pedrodllerenas"></a></li>
+      </ul>
+      <ul class="links">
+        <li><a href="#">Home</a></li>
+        <li><a href="projects">Projects</a></li>
+        <li><a href="resume">Resume</a></li>
+        <li><a href="about">About</a></li>
+        <li><a href="contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <h1>Contact Me</h1>
+    <form onsubmit="sendEmail(event)">
+        <label for="from_name">Your Name:</label><br>
+        <input type="text" id="from_name" name="from_name" required><br><br>
+
+        <label for="email">Your Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="message">Your Message:</label><br>
+        <textarea id="message" name="message" rows="5" required></textarea><br><br>
+
+        <button type="submit">Send Email</button>
+    </form>
+
+
+</body>
+</html>
