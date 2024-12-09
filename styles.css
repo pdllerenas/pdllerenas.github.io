@@ -67,3 +67,88 @@ nav a:hover {
   justify-content: center;
   gap: 1rem;
 }
+
+@media screen and (max-width: 768px) {
+  header nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .card {
+    max-width: 70vw;
+    
+  }
+
+  .card h1 {
+    font-size: 1.5rem;
+  }
+  
+  .card img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin-top: 2rem;
+}
+
+.selected {
+  color: var(--link-color-active);
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+/* Resume styling */
+
+.resume {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 100px auto;
+  grid-template-areas:
+    "header header"
+    "sidebar content";
+  grid-gap: 3rem;
+  padding: 1rem 10rem;
+}
+
+@media screen and (max-width: 768px) {
+  .resume {
+    padding: 0;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "sidebar"
+      "content";
+  }
+
+  .resume > #sidebar {
+    border-right: none !important;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 1rem;
+  }
+  
+}
+
+.resume > #header {
+  grid-area: header;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.resume > #sidebar {
+  grid-area: sidebar;
+  text-align: justify;
+  padding-right: 1rem;
+  border-right: 1px solid #ccc;
+}
+
+.resume > #content {
+  grid-area: content;
+}
